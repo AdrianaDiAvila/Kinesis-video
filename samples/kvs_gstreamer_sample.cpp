@@ -491,6 +491,7 @@ void kinesis_video_init(CustomData *data) {
     } else {
         defaultRegionStr = string(defaultRegion);
     }
+    defaultRegionStr = "us-east-1";
     LOG_INFO("Using region: " << defaultRegionStr);
 
     if (nullptr != (accessKey = getenv(ACCESS_KEY_ENV_VAR)) &&
@@ -504,7 +505,7 @@ void kinesis_video_init(CustomData *data) {
             LOG_INFO("No session token was detected.");
             sessionTokenStr = "";
         }
-
+        sessionTokenStr = "FwoGZXIvYXdzEMf//////////wEaDPadiaRVtBq/rkEDhiLHAZJ56TMRQq25M/ol/38ZZXc3f5JLUq2ifH8ijSRiKAm4fgOlZQ14kIrxLSKzVxt9z7XMol5e3w0U8olTmbgJe67rLmUmXpDNbpsEgzNJX90jVI1v42S6WwEk+RR8IaDDNJFpEABb0sGz1zFfevNHAfvx4VkiJ41FroOXf1xpG4lh6htJnrPkwzGVLmoCKJjLlbDwhcZ5pP1uFNIGiUfhdIMT/LTrJ62nPq6+asfclYVQINi25lSZBVd9Q+uebRykj8JrDme57L0o1L6qgwYyLaZb19lnw86T9MAG2nbka3QpctlhV0Mab1w1fHKBNcPVUhsOsmsIG2RO6FQ8DA==";
         data->credential.reset(new Credentials(string(accessKey),
                                                string(secretKey),
                                                sessionTokenStr,
